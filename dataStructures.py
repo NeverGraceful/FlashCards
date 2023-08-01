@@ -11,6 +11,7 @@ def fill_data_structures():
             match list[0]:
                 case "classes":
                     list.remove("classes")
+                    global class_list
                     class_list = list.copy()
                     
         info_file.close()

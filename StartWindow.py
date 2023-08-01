@@ -21,15 +21,17 @@ class StartMenu(QtWidgets.QDialog):
 
     def display_classes(self):
         self.ui.SCROLL_AREA = QtWidgets.QScrollArea(self)
-        self.vbox = QtWidgets.QGridLayout(self.ui.SCROLL_WIDGET)
+        self.vbox = self.ui.SCROLL_WIDGET.layout()
         self.ui.SCROLL_AREA.setWidget(self.ui.SCROLL_WIDGET)
-
+        print(self.classes)
         for classes in self.classes:
             button = QPushButton(classes)
+            button.setStyleSheet("background-color : white")
             button.clicked.connect(self.set_class)
-            self.SCROLL_AREA.addWidget(button)
+            print("added")
+            self.vbox.addWidget(button)
                 
-        self.ui.SCROLL_WIDGET.setLayout(self.vbox)
+        # self.ui.SCROLL_WIDGET.setLayout(self.vbox)
 
         self.ui.SCROLL_AREA.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.ui.SCROLL_AREA.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
