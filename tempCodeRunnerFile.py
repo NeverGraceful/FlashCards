@@ -1,0 +1,1 @@
+ # self.ui.SCROLL_WIDGET.setLayout(self.vbox)
