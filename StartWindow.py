@@ -15,6 +15,8 @@ class StartMenu(QtWidgets.QDialog):
         self.ui.ADD_CARD_BUTT.clicked.connect(self.button_push)
         self.ui.CUSTOM_BUTT.clicked.connect(self.button_push)
         self.ui.START_BUTT.clicked.connect(self.button_push)
+        self.ui.FRONT_FIRST.clicked.connect(self.button_push)
+        self.ui.BACK_FIRST.clicked.connect(self.button_push)
         dataStructures.fill_data_structures()
         self.classes = dataStructures.class_list
         self.display_classes()
@@ -31,7 +33,7 @@ class StartMenu(QtWidgets.QDialog):
             print("added")
             self.vbox.addWidget(button)
                 
-        # self.ui.SCROLL_WIDGET.setLayout(self.vbox)
+        self.ui.SCROLL_WIDGET.setLayout(self.vbox)
 
         self.ui.SCROLL_AREA.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.ui.SCROLL_AREA.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -45,22 +47,34 @@ class StartMenu(QtWidgets.QDialog):
         name = self.sender()
         if name.text() == "New Card":
             print("New Card")
-            NewCardWindow.NewCardMenu()
+            win = NewCardWindow.NewCardMenu()
+            win.exec_()
 
         elif name.text() == "New Class":
             print("New Class")
-            NewClassWindow.NewClassMenu()
+            win = NewClassWindow.NewClassMenu()
+            win.exec_()
 
         elif name.text() == "Shuffle List":
             print("Shuffle")
 
         elif name.text() == "Start Practice!":
             print("Start")
-            PracticeWindow.Practice()
+            win = PracticeWindow.Practice()
+            win.exec_()
+
+        elif name.text() == "Front First":
+            print("Front first")
+            dataStructures.front_first = 1
+
+        elif name.text() == "Back First":
+            print("Back first")
+            dataStructures.front_first = 0
 
         else:
             print("Custom List")
-            CustomWindow.CustomizeListMenu()
+            win = CustomWindow.CustomizeListMenu()
+            win.exec_()
 
     
 def window():

@@ -1,6 +1,7 @@
 import sys, os, re
 
 class_list = []
+front_first = 1
 
 def fill_data_structures():
     print("fill ds")
