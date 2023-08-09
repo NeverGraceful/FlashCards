@@ -8,6 +8,7 @@ class StartMenu(QtWidgets.QDialog):
         super(StartMenu, self).__init__()
         self.ui = start.Ui_Dialog()
         self.ui.setupUi(self)
+        self.setFixedSize(539, 390)
         self.setWindowTitle('Flash Cards')
         self.setWindowIcon(QtGui.QIcon('logoflash.png'))
         self.ui.SHUFFLE_BUTT.clicked.connect(self.button_push)
@@ -17,6 +18,7 @@ class StartMenu(QtWidgets.QDialog):
         self.ui.START_BUTT.clicked.connect(self.button_push)
         self.ui.FRONT_FIRST.clicked.connect(self.button_push)
         self.ui.BACK_FIRST.clicked.connect(self.button_push)
+        self.ui.FRONT_FIRST.setStyleSheet("background-color : #d1d1d1")
         dataStructures.fill_data_structures()
         self.classes = dataStructures.class_list
         self.display_classes()
@@ -66,15 +68,22 @@ class StartMenu(QtWidgets.QDialog):
         elif name.text() == "Front First":
             print("Front first")
             dataStructures.front_first = 1
+            self.ui.FRONT_FIRST.setStyleSheet("background-color : white")
+            self.ui.BACK_FIRST.setStyleSheet("background-color : #d1d1d1")
 
         elif name.text() == "Back First":
             print("Back first")
             dataStructures.front_first = 0
+            self.ui.BACK_FIRST.setStyleSheet("background-color : white")
+            self.ui.FRONT_FIRST.setStyleSheet("background-color : #d1d1d1")
 
         else:
             print("Custom List")
             win = CustomWindow.CustomizeListMenu()
             win.exec_()
+    
+        
+
 
     
 def window():

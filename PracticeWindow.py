@@ -8,6 +8,7 @@ class Practice(QtWidgets.QDialog):
         super(Practice, self).__init__()
         self.ui = practice.Ui_Dialog()
         self.ui.setupUi(self)
+        self.setFixedSize(724, 465)
         self.setWindowTitle('Practice')
         self.setWindowIcon(QtGui.QIcon('logoflash.png'))
         self.ui.HINT_LABEL.setGeometry(300, 400, 0, 0)

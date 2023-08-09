@@ -17,6 +17,20 @@ def fill_data_structures():
                     
         info_file.close()
 
+def save_data():
+    print("save ds")
+    wanted_path = os.path.join(find_path(),'info.txt')
+    info_file = open(wanted_path, 'w')
+    info_file.write("classes")
+    for classes in class_list:
+        print(classes)
+        info_file.write(":" + classes)
+
+    # info_file.write("\n")
+
+    info_file.close()
+
+
 def find_path():
         if getattr(sys, 'frozen', False):
             application_path = os.path.dirname(sys.executable)
