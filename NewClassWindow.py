@@ -25,12 +25,3 @@ class NewClassMenu(QtWidgets.QDialog):
         dataStructures.save_data()
         wanted_path = os.path.join(dataStructures.find_path(),'Classes\\' + entry + ".txt")
         f = open(wanted_path, 'x')
-
-
-    def find_path():
-        if getattr(sys, 'frozen', False):
-            application_path = os.path.dirname(sys.executable)
-        else:
-           application_path = os.path.dirname(os.path.abspath(__file__))
-
-        return application_path

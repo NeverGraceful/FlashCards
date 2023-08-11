@@ -66,6 +66,10 @@ class Ui_Dialog(object):
         self.BACK_FIRST.setGeometry(QtCore.QRect(390, 290, 101, 51))
         self.BACK_FIRST.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.BACK_FIRST.setObjectName("BACK_FIRST")
+        self.ERROR_LABEL = QtWidgets.QLabel(Dialog)
+        self.ERROR_LABEL.setGeometry(QtCore.QRect(310, 240, 161, 20))
+        self.ERROR_LABEL.setAlignment(QtCore.Qt.AlignCenter)
+        self.ERROR_LABEL.setObjectName("ERROR_LABEL")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -81,3 +85,4 @@ class Ui_Dialog(object):
         self.ADD_CARD_BUTT.setText(_translate("Dialog", "New Card"))
         self.FRONT_FIRST.setText(_translate("Dialog", "Front First"))
         self.BACK_FIRST.setText(_translate("Dialog", "Back First"))
+        self.ERROR_LABEL.setText(_translate("Dialog", " "))

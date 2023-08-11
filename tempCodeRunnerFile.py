@@ -1,1 +1,1 @@
-self.setWindowIcon(QtGui.QIcon('logoflash.png'))
+SHUFF

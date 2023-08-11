@@ -1,1 +1,1 @@
-classes:ClassOne:ClassTwo:ClassThree:hi:hello:heyy
+classes: ClassOne ClassTwo ClassThree

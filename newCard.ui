@@ -64,35 +64,47 @@
     <string>Submit</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>60</y>
-     <width>341</width>
-     <height>311</height>
+     <y>270</y>
+     <width>351</width>
+     <height>111</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_4">
       <property name="font">
        <font>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Front:</string>
+       <string>Hint:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPlainTextEdit" name="ENTER_FRONT">
+     <widget class="QPlainTextEdit" name="ENTER_HINT">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>351</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label_3">
       <property name="font">
@@ -114,11 +126,45 @@
     </item>
    </layout>
   </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>351</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Front:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPlainTextEdit" name="ENTER_FRONT">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>ENTER_FRONT</zorder>
   <zorder>CLASS_COMBO</zorder>
   <zorder>SUBMIT_BUTT</zorder>
+  <zorder>label_2</zorder>
+  <zorder>ENTER_FRONT</zorder>
+  <zorder>label_3</zorder>
+  <zorder>ENTER_BACK</zorder>
+  <zorder>layoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>

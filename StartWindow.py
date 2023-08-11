@@ -21,18 +21,17 @@ class StartMenu(QtWidgets.QDialog):
         self.ui.FRONT_FIRST.setStyleSheet("background-color : #d1d1d1")
         dataStructures.fill_data_structures()
         self.classes = dataStructures.class_list
+        self.cur_class = ""
         self.display_classes()
 
     def display_classes(self):
         self.ui.SCROLL_AREA = QtWidgets.QScrollArea(self)
         self.vbox = self.ui.SCROLL_WIDGET.layout()
         self.ui.SCROLL_AREA.setWidget(self.ui.SCROLL_WIDGET)
-        print(self.classes)
         for classes in self.classes:
             button = QPushButton(classes)
             button.setStyleSheet("background-color : white")
             button.clicked.connect(self.set_class)
-            print("added")
             self.vbox.addWidget(button)
                 
         self.ui.SCROLL_WIDGET.setLayout(self.vbox)
@@ -44,6 +43,7 @@ class StartMenu(QtWidgets.QDialog):
 
     def set_class(self):
         self.cur_class = self.sender().text()
+        dataStructures.cur_class = self.sender().text()
 
     def button_push(self):
         name = self.sender()
@@ -59,9 +59,13 @@ class StartMenu(QtWidgets.QDialog):
 
         elif name.text() == "Shuffle List":
             print("Shuffle")
+            dataStructures.shuffle = 1
 
         elif name.text() == "Start Practice!":
             print("Start")
+            if self.cur_class == "":
+                self.ui.ERROR_LABEL.setText("Please select a class")
+                return
             win = PracticeWindow.Practice()
             win.exec_()
 
