@@ -1,4 +1,4 @@
-import sys, os, random
+import sys, os, random, re
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtWidgets import QPushButton, QLabel, QApplication
 import practice, dataStructures
@@ -73,8 +73,9 @@ class Practice(QtWidgets.QDialog):
             self.back_list = []
             self.hint_list = []
             for line in info_file:
-                card_list = line.split() 
+                card_list = re.split(':', line)
                 for i in card_list:
+                    # i = i.rstrip(i[-1])
                     if index % 3 == 0:
                         self.front_list.append(i)
                     elif index % 3 == 1:

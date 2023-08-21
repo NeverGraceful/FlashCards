@@ -17,5 +17,5 @@ class NewCardMenu(QtWidgets.QDialog):
         print("save new card")
         wanted_path = os.path.join(dataStructures.find_path(),'Classes\\' + self.ui.CLASS_COMBO.currentText() + ".txt")
         with open(wanted_path, 'a') as info_file:
-            info_file.write(self.ui.ENTER_FRONT.toPlainText() + " " + self.ui.ENTER_BACK.toPlainText() + " " + self.ui.ENTER_HINT.toPlainText())
+            info_file.write(self.ui.ENTER_FRONT.toPlainText() + ": " + self.ui.ENTER_BACK.toPlainText() + ": " + self.ui.ENTER_HINT.toPlainText()+": ")
             info_file.close()

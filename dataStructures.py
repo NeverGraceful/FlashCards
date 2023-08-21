@@ -27,7 +27,7 @@ def save_data():
     info_file.write("classes")
     for classes in class_list:
         print(classes)
-        info_file.write(":" + classes)
+        info_file.write(" " + classes)
 
     # info_file.write("\n")
 
