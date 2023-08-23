@@ -25,12 +25,9 @@ class Practice(QtWidgets.QDialog):
     def flip(self):
         print("flip")
         if self.cur_side == 0:
-            print("here")
             self.cur_side = 1
         else:
-            print("there")
             self.cur_side = 0
-        print("flipped to " + str(self.cur_side))
         self.display_card()
     
     def show_hint(self):
@@ -39,20 +36,21 @@ class Practice(QtWidgets.QDialog):
         self.ui.HINT_LABEL.setText(self.hint_list[self.cur_card_index])
     
     def next_card(self):
-        print("next card")
+        print("cur_card_index: " + str(self.cur_card_index))
         self.ui.HINT_LABEL.setGeometry(300, 400, 0, 0)
-        if self.cur_card_index >= len(self.front_list):
+        if self.cur_card_index >= len(self.hint_list) - 1:
             return
         self.cur_card_index = self.cur_card_index + 1
         self.cur_side == 0
         self.display_card()
 
     def prev_card(self):
-        print("prev card")
+        print("cur_card_index: " + str(self.cur_card_index))
         self.ui.HINT_LABEL.setGeometry(300, 400, 0, 0)
         if self.cur_card_index <= 0:
             return
         self.cur_card_index = self.cur_card_index - 1
+        print("here")
         self.cur_side == 0
         self.display_card()
 
@@ -65,28 +63,35 @@ class Practice(QtWidgets.QDialog):
             self.ui.MAIN_LABEL.setText(self.back_list[self.cur_card_index])
 
     def fill_flash_list(self):
-        print("fill flash")
-        wanted_path = os.path.join(dataStructures.find_path(), 'Classes\\' + dataStructures.cur_class +".txt")
-        with open(wanted_path) as info_file:
-            index = 0
-            self.front_list = []
-            self.back_list = []
-            self.hint_list = []
-            for line in info_file:
-                card_list = re.split(':', line)
-                for i in card_list:
-                    # i = i.rstrip(i[-1])
-                    if index % 3 == 0:
-                        self.front_list.append(i)
-                    elif index % 3 == 1:
-                        self.back_list.append(i)
-                    else:
-                        self.hint_list.append(i)
-                    index = index + 1
-                if dataStructures.shuffle == 1:
-                    temp = list(zip(self.front_list, self.back_list, self.hint_list))
-                    random.shuffle(temp)
-                    res1, res2, res3 = zip(*temp)
-                    self.front_list, self.back_list, self.hint_list = list(res1), list(res2), list(res3)   
-                print(self.hint_list) 
-            info_file.close()
+        dataStructures.fill_flash_list()
+        self.front_list = dataStructures.front_list
+        self.back_list = dataStructures.back_list
+        self.hint_list = dataStructures.hint_list
+        print(self.hint_list) 
+
+    # def fill_flash_list(self):
+    #     print("fill flash")
+    #     wanted_path = os.path.join(dataStructures.find_path(), 'Classes\\' + dataStructures.cur_class +".txt")
+    #     with open(wanted_path) as info_file:
+    #         index = 0
+    #         self.front_list = []
+    #         self.back_list = []
+    #         self.hint_list = []
+    #         for line in info_file:
+    #             card_list = re.split(':', line)
+    #             for i in card_list:
+    #                 # i = i.rstrip(i[-1])
+    #                 if index % 3 == 0:
+    #                     self.front_list.append(i)
+    #                 elif index % 3 == 1:
+    #                     self.back_list.append(i)
+    #                 else:
+    #                     self.hint_list.append(i)
+    #                 index = index + 1
+    #             if dataStructures.shuffle == 1:
+    #                 temp = list(zip(self.front_list, self.back_list, self.hint_list))
+    #                 random.shuffle(temp)
+    #                 res1, res2, res3 = zip(*temp)
+    #                 self.front_list, self.back_list, self.hint_list = list(res1), list(res2), list(res3)   
+    #             print(self.hint_list) 
+    #         info_file.close()

@@ -1,19 +1,20 @@
 import sys, os
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QPushButton, QLabel, QApplication
-import start, PracticeWindow, NewClassWindow, NewCardWindow, CustomWindow, dataStructures
+import start, PracticeWindow, NewClassWindow, CardWindow, CustomWindow, dataStructures
 
 class StartMenu(QtWidgets.QDialog):
     def __init__(self):
         super(StartMenu, self).__init__()
         self.ui = start.Ui_Dialog()
         self.ui.setupUi(self)
-        self.setFixedSize(539, 390)
+        self.setFixedSize(539, 397)
         self.setWindowTitle('Flash Cards')
         self.setWindowIcon(QtGui.QIcon('logoflash.png'))
         self.ui.SHUFFLE_BUTT.clicked.connect(self.button_push)
         self.ui.ADD_CLASS_BUTT.clicked.connect(self.button_push)
         self.ui.ADD_CARD_BUTT.clicked.connect(self.button_push)
+        self.ui.REMOVE_CARD_BUTT.clicked.connect(self.button_push)
         self.ui.CUSTOM_BUTT.clicked.connect(self.button_push)
         self.ui.START_BUTT.clicked.connect(self.button_push)
         self.ui.FRONT_FIRST.clicked.connect(self.button_push)
@@ -49,7 +50,12 @@ class StartMenu(QtWidgets.QDialog):
         name = self.sender()
         if name.text() == "New Card":
             print("New Card")
-            win = NewCardWindow.NewCardMenu()
+            win = CardWindow.NewCardMenu()
+            win.exec_()
+        
+        elif name.text() == "Remove Card":
+            print("Remove Card")
+            win = CardWindow.RemoveCardMenu()
             win.exec_()
 
         elif name.text() == "New Class":
